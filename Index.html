@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Truong DH Cong Nghe TP.HCM</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<link href="bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="style.css" type="text/css" media="all" />
+<script>
+function validate() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+		var x = document.forms["myForm"]["email"].value;
+		var atpos = x.indexOf("@");
+		var dotpos = x.lastIndexOf(".");
+        if (username == null || username == "") {
+            document.getElementById("usname").innerHTML = "Username is required";
+            return false;
+        }
+		if (password.length < 6) 
+		{
+            document.getElementById("psword").innerHTML = "Password must have minimum 6 character";
+            return false;
+        }		
+		if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+			document.getElementById("emal").innerHTML = "Must be a vaild email";
+			return false;
+		}
+    }	
+</script>
+</head>
+<body>
+	<h1>Cau 1</h1>
+	<h1> ABC </h1>
+	<div class="cau1">
+		<h1>div-1</h1>
+		<h1>div-2</h1>
+	</div>
+	<h1>
+		XYZ
+	</h1><br>
+	<p>----------------------------------------------</p>
+	<h1>Cau 2</h1>
+	<a href="www.hutech.edu.vn">TRUONG DAI HOC CONG NGHE TP.HCM</a><br>
+	<p>----------------------------------------------</p>
+	<h1>Cau 3</h1>
+	<form name="myForm">
+		<div class="container">
+			<p class="col-sm-2">Username</p>
+			<input class="col-sm-2" id="username" type="text" placeholder="Username"/>
+			<p id="usname"></p>
+		</div>
+		<div class="container">
+			<p class="col-sm-2">Password</p>
+			<input class="col-sm-2" id="password" type="password" placeholder="Password"/>
+			<p id="psword"></p>
+		</div>
+		<div class="container">
+			<p class="col-sm-2">Email Address</p>
+			<input class="col-sm-2" id="email" dtype="email" required="" placeholder="Email"/>
+			<p id="emal"></p>
+		</div>
+		<div class="container">
+			<input type="checkbox" value="I've read the terms and conditions" checked> I've read the terms and conditions<br>
+		</div>
+		<div class="container">
+			<input type="submit" onclick="validate()" value="Submit">
+		</div>
+	</form>
+	<h1>Cau 4</h1>
+		<br>
+		<table id="myTable">
+			<tr>
+				<td>
+					<select>
+						<option value="Email">Email</option>
+						<option value="Facebook">Facebook</option>
+						<option value="Zalo">Zalo</option>
+					</select>
+				</td>
+				<td>
+					<input type="text" id="input1" >
+				</td>
+				<td>Comments</td>
+				<td>
+					<input type="text" id="input2">
+				</td>
+			</tr>
+		</table>
+		<button id="addRow">Try it</button>
+		<br>
+		<script>
+		$(document).ready(function(){
+			$("#addRow").click(function(){
+				$("table").append("<tr><td>"+$("select").val()+"<td><td>"+$("#input1").val()+"<td><td>"+$("#input2").val()+"<td></tr>");
+			});
+		});
+		</script>
+</body>
+</html>
